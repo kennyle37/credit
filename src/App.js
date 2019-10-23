@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
+  const [ cardNumber, setCardNumber ] = useState('');
+
+  function handleCardNumber(e) {
+    const regex = /^[0-9\b]+$/;
+    const value = e.target.value;
+
+    if (value === '' || regex.test(value)) {
+      setCardNumber(e.target.value);
+    }
+  }
+
   return (
     <div className="App">
+      <div className="confirmation">Card Number is: {cardNumber} </div>
       <form className="form">
         <div className="title">Card Number</div>
-        <input></input>
+        <input onChange={handleCardNumber} value={cardNumber} />
         <div className="title">Card Name</div>
         <input></input>
         
@@ -23,6 +35,13 @@ function App() {
                   <p className="item">03</p>
                   <p className="item">04</p>
                   <p className="item">05</p>
+                  <p className="item">06</p>
+                  <p className="item">07</p>
+                  <p className="item">08</p>
+                  <p className="item">09</p>
+                  <p className="item">10</p>
+                  <p className="item">11</p>
+                  <p className="item">12</p>
                 </div>
               </div>
               <div className="dropdown">
